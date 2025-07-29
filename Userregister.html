@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo(1).png" type="image/x-icon" />
+    <link rel="stylesheet" href="registration.css">
+    <script src="https://kit.fontawesome.com/5368e641d8.js" crossorigin="anonymous"></script>
+    <title>User registration</title>
+</head>
+<body>
+    <div>
+        <a href="startingpage.html" class="stu"><p><i class="fa-solid fa-house"></i> Home</p></a></div>
+    <h1>User Registration</h1>
+    <div class="total">
+    <div class="logo">
+        <img src="logo(1).png" alt="logo" width="200px">
+    </div>
+    <div class="in">
+    <form id="loginForm" action="http://localhost/wt/user.php" method="POST" accept-charset="UTF-8">
+    <label for="username">Username:</label><br>
+    <input type="text" name="username" id="username" placeholder="name" required><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" placeholder="abc@mail.com" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" id="password" placeholder="password" required><br><br>
+    <label for="mobile">Mobile:</label><br>
+    <input type="number" name="mobile" id="mobile" placeholder="phone number" required><br><br>
+    <label for="address">Address:</label><br>
+    <input type="text" name="address" id="address" placeholder="address" required><br><br>
+    <label for="city">City:</label><br>
+    <input type="text" name="city" id="city" placeholder="city"><br><br></div>
+    <button type="submit">Register</button></form><br><br><br>
+    <div class="pass">
+    <p>Already have an account <span><a href="userlogin.html">Login</a></span></p><br>
+    </div>
+    </div>
+</body>
+</html>

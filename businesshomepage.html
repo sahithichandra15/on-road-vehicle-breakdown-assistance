@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo(1).png" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/5368e641d8.js" crossorigin="anonymous"></script>
+    <title>business home</title>
+    <style>
+    
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color:#e2eff1;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #e2eff1;
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+        }
+        .logo_img{
+            margin-left: 320px;
+            animation: bln 2s;
+        }
+        @keyframes bln {
+            0%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .img_a{
+            margin-left: 40px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.87);
+            padding: 10px;
+            animation: navn 2s;
+        }
+        a{
+            animation: navi 1s;
+        }
+        @keyframes navi {
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        @keyframes navn {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #e2eff1;
+            border-radius: 10px;
+            color: black;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            animation: hel 3s;
+        }
+        @keyframes hel {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            margin-left: 40px;
+            margin-right: 40px;
+            border-radius: 15px;
+        }
+        .mySlides {
+            display: none;
+        }
+        .in {
+            width: 100%;
+            height: 600px;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+        @keyframes fade {
+            from { opacity: 0.4; } 
+            to { opacity: 1; }
+        }
+        .dot-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active {
+            background-color: coral;
+        }
+        .services {
+            text-align: center;
+            padding: 40px;
+            background-color: #e2eff1;
+        }
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        .service-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .service {
+            flex: 1;
+            margin: 10px;
+            max-width: 250px;
+            text-align: center;
+        }
+        .service img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .service h3 {
+            margin-top: 15px;
+            font-size: 24px;
+            color: #333;
+        }
+        .service p {
+            font-size: 16px;
+            color: #666;
+        }
+        footer {
+            background-color: rgba(0,0,0,0.87);
+            color: white;
+            padding: 30px 0;
+            width: 100%;
+        }
+        footer .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-container div {
+            flex: 1;
+            margin: 10px;
+            min-width: 250px;
+        }
+        footer h3 {
+            color: #ffbb33;
+            margin-bottom: 10px;
+        }
+        footer p, footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #ffbb33;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label, input, textarea {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: calc(100% - 20px);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ffbb33;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: coral;
+        }
+        .a{
+            margin-left: 1400px;
+            font-size: 30px;
+            position: absolute;
+            animation: ani 2s infinite;
+        }
+        .b{
+            margin-left: 1370px;
+            font-size: 30px;
+            color:chocolate;
+            margin-top: 20px;
+            position: absolute;
+            animation: anm 2s infinite;
+        }
+        @keyframes ani {
+            0%{
+                rotate: 0deg;    
+            }    
+            100%{
+                rotate: -180deg;
+            }
+        }
+        @keyframes anm {
+            0%{
+                rotate: 0deg;    
+            }    
+            100%{
+                rotate: 180deg;
+            }
+        }
+        .service:hover{
+            scale:1.1;
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <img src="logo(1).png" alt="" width="120px" class="img_a">
+        <h1 class="logo_img">WELCOME, BUSINESS PARTNER!</h1>
+        <span class="a"><i class="fa-solid fa-gear"></i></span><br>
+        <span class="b"><i class="fa-solid fa-gear"></i></span>
+    </header>
+
+    <nav>
+        <a href="#">Profile</a>
+        <a href="#">Manage requests</a>
+        <a href="#">Service History</a>
+        <a href="#" onclick="redirect()">Log Out</a>
+    </nav>
+    
+    <section>
+        <h2>Need Help?</h2>
+        <p>Click on "Request Assistance" to get help right away!</p><br>
+    </section>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="img.webp" class="in">
+        </div>
+        <div class="mySlides fade">
+          <img src="img6.jpg" class="in">
+        </div>
+        <div class="mySlides fade">
+            <img src="img1.webp" class="in">
+        </div>
+        <div class="mySlides fade">
+          <img src="img2.avif" class="in">
+        </div>
+        <div class="mySlides fade">
+            <img src="img3.jpg" class="in">
+        </div>
+        <div class="mySlides fade">
+            <img src="img4.jpg" class="in">
+        </div>
+    </div>
+
+    <div class="dot-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <section class="services">
+        <h2>Our Services</h2><br>
+        <div class="service-container">
+            <div class="service">
+                <img src="mechanic.jpg" alt="Mechanic Repairs" width="200px">
+                <h3>Mechanic Repairs</h3>
+                <p>Get professional mechanic services at your location.</p>
+            </div>
+            <div class="service">
+                <img src="tyre.webp" alt="Tyre Services" width="200px">
+                <h3>Tyre Services</h3>
+                <p>Need a tyre change or repair? We are here to help.</p>
+            </div>
+            <div class="service">
+                <img src="fuel.jpg" alt="Fuel Delivery" width="200px">
+                <h3>Fuel Delivery</h3>
+                <p>Ran out of fuel? We deliver fuel to your location.</p>
+            </div>
+            <div class="service">
+                <img src="battery.png" alt="Battery Jumpstart" width="200px">
+                <h3>Battery Jumpstart</h3>
+                <p>Dead battery? Get quick jumpstart assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h3>Contact Us:</h3>
+                <form action="">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+                
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div>
+                <h3>Quick Links:</h3>
+                <p><a href="#">Privacy Policy</a></p>
+                <p><a href="#">Terms of Service</a></p>
+                <p><a href="#">FAQ</a></p>
+            </div>
+            <div>
+                <h3>Connect with Us:</h3>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Twitter</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000);
+        }
+
+        function redirect(){
+            location.replace("startingpage.html");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Finder - Bengaluru</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #333;
+}
+
+main {
+    display: flex;
+}
+
+#filter-section {
+    width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 58px;
+    height: 520px;
+}
+
+#filter-section h2 {
+    margin-bottom: 10px;
+}
+
+#filter-section label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#filter-section input,
+#filter-section select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+#filter-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#pg-list {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+#pg-list h2 {
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+
+#pg-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pg-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pg-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition:transform 0.3s ease;
+}
+.pg-card img:hover{
+    transform:scale(1.1);
+}
+
+.pg-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.pg-card p {
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+.occupancy {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight:10px;
+}
+.occupancy input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+}
+
+.occupancy:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.occupancy input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.occupancy:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.occupancy input:checked ~ .checkmark:after {
+  display: block;
+}
+.occupancy .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <section id="filter-section">
+                <h2>Filters</h2>
+                <label for="location-filter">Location:</label>
+                <input type="text" id="location-filter" placeholder="Enter location"><br>
+
+                <label for="price-filter">Price Range:</label>
+                <input type="range" id="price-filter" min="5000" max="15000" step="500"><br>
+                <span id="price-value">10000</span>
+
+                <label for="gender-filter">PG For:</label>
+                <select id="gender-filter">
+                    <option value="all">All</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="coed">Co-ed</option>
+                </select><br>
+                <label for="occupancy-filter">Occupancy:</label>
+                <div>
+                    <label class="occupancy">Single Sharing
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="occupancy">Two Sharing
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="occupancy">Three Sharing
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="occupancy">Four Sharing
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="occupancy">Five Sharing
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                </div>
+
+                <button id="filter-btn">Apply Filters</button>
+            </section>
+
+            <section id="pg-list">
+                <h2>Available pg's in Bengaluru</h2>
+                <div id="pg-container"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Find My PG &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script>// Sample PG Data with Photos
+        let pgData = [
+            {
+                name: "Shree PG for Girls",
+                location: "Koramangala",
+                price: 8000,
+                gender: "female",
+                description: "Comfortable and secure PG for girls in Koramangala.",
+                photo: "https://tse2.mm.bing.net/th?id=OIP.7zpKFon0VsTv9-vL3-Ba9QHaLG&pid=Api&P=0&h=180" // Placeholder image, replace with actual image URL
+            },
+            {
+                name: "Elite PG for Boys",
+                location: "HSR Layout",
+                price: 10000,
+                gender: "male",
+                description: "Modern PG with great amenities in HSR Layout.",
+                photo: "https://tse4.mm.bing.net/th?id=OIP.ZCmTq3sCfkYI5UOZvlBqlwHaFj&pid=Api&P=0&h=180" // Placeholder image, replace with actual image URL
+            },
+            {
+                name: "Cozy Co-ed PG",
+                location: "BTM Layout",
+                price: 12000,
+                gender: "coed",
+                description: "Affordable Co-ed PG with all facilities in BTM Layout.",
+                photo: "https://sp.yimg.com/ib/th?id=OIP.TOlT2EW-fJiNHhEfBxDEQgAAAA&pid=Api&w=148&h=148&c=7&dpr=2&rs=1" // Placeholder image, replace with actual image URL
+            },
+            {
+                name: "Luxury PG for Women",
+                location: "Indiranagar",
+                price: 15000,
+                gender: "female",
+                occupancy: "single",
+                description: "Luxury PG for women with all modern amenities in Indiranagar.",
+                photo: "https://tse2.mm.bing.net/th?id=OIP.OPTDb29V6LAgj4QiaxdZYgAAAA&pid=Api&P=0&h=180" // Placeholder image, replace with actual image URL
+            },
+            {
+                name: "Budget PG for Boys",
+                location: "Whitefield",
+                price: 5000,
+                gender: "male",
+                occupancy: "double",
+                description: "Affordable PG for boys with basic amenities in Whitefield.",
+                photo: "https://tse2.mm.bing.net/th?id=OIF.fG1mrS2Xz6jTQ%2bX7%2bEs3kQ&pid=Api&P=0&h=180" // Placeholder image, replace with actual image URL
+            },
+            {
+                name: "Homely Co-ed PG",
+                location: "JP Nagar",
+                price: 9000,
+                gender: "coed",
+                occupancy: "four",
+                description: "Homely Co-ed PG with cozy interiors and all necessary facilities in JP Nagar.",
+                photo: "https://tse1.mm.bing.net/th?id=OIP.iA2PBNUwJrcFY0eF2zJ1lgHaFj&pid=Api&P=0&h=180" // Placeholder image, replace with actual image URL
+            }
+        ];
+        
+        // Display PGs with Photos in the PG Finder interface
+        function displayPGs(pgList) {
+            const pgContainer = document.getElementById('pg-container');
+            pgContainer.innerHTML = ''; // Clear previous results
+        
+            pgList.forEach(pg => {
+                const pgCard = document.createElement('div');
+                pgCard.className = 'pg-card';
+                pgCard.innerHTML = `
+                    <img src="${pg.photo}" alt="${pg.name}">
+                    <h3>${pg.name}</h3>
+                    <p><strong>Location:</strong> ${pg.location}</p>
+                    <p><strong>Price:</strong> ₹${pg.price}</p>
+                    <p><strong>Gender:</strong> ${pg.gender.charAt(0).toUpperCase() + pg.gender.slice(1)}</p>
+                    <p>${pg.description}</p>
+                `;
+                pgContainer.appendChild(pgCard);
+            });
+        }
+        
+        // Filter PGs based on user input
+        document.getElementById('filter-btn').addEventListener('click', function () {
+            const locationFilter = document.getElementById('location-filter').value.toLowerCase();
+            const priceFilter = document.getElementById('price-filter').value;
+            const genderFilter = document.getElementById('gender-filter').value;
+        
+            const filteredPGs = pgData.filter(pg => {
+                const matchesLocation = pg.location.toLowerCase().includes(locationFilter);
+                const matchesPrice = pg.price <= priceFilter;
+                const matchesGender = genderFilter === 'all' || pg.gender === genderFilter;
+        
+                return matchesLocation && matchesPrice && matchesGender;
+            });
+        
+            displayPGs(filteredPGs);
+        });
+        
+        // Show initial PG list
+        displayPGs(pgData);
+        
+        // Update price filter display
+        document.getElementById('price-filter').addEventListener('input', function () {
+            document.getElementById('price-value').innerText = this.value;
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5368e641d8.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="logo(1).png" type="image/x-icon" />
+    <title>Request assistance</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url(back.jpg);
+            background-repeat: no-repeat;
+            background-position: fixed;
+            background-size: cover;
+        }
+        .heading{
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+        }
+        input{
+            width: 250px;
+            border: none;
+            border-bottom: 1px solid black;
+            height: 40px;
+            background:none;
+            text-indent: 10px;
+        }
+        textarea{
+            border-radius: 5px;
+            text-indent: 10px;
+        }
+        select{
+            border-radius: 5px;
+        }
+        label{
+            font-size: 20px;
+        }
+        .total{
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.884);
+            margin-left: 500px;
+            margin-right: 500px;
+            height: 800px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            border: 1px solid black;    
+        }
+        .container{
+            margin-left: 150px;
+            margin-top: 30px;
+        }
+        img{
+            margin-top: 20px;
+        }
+        form{
+            margin-left: -30px;
+            margin-top: 20px;
+        }
+        button{
+            margin-left: 65px;
+            margin-top: 10px;
+            width: 150px;
+            height: 30px;
+            background-color:beige;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        button:hover{
+            background-color:#ff6f91;
+            border: 1px solid black;
+        }
+        .stu{
+            margin-left: 40px;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.884);
+            opacity: 0.8;
+            color: black;
+            padding: 2px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .stu:hover{
+            background-color: #ff6f91;
+            color: black;
+        }
+        img {
+            position: relative;
+            animation: slideIn 0.4s ease-out forwards;
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .total{
+            animation: blink 2s;
+        }
+        @keyframes blink {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .but{
+            background-color: darksalmon;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="userhomepage.html" class="stu"><p><i class="fa-solid fa-circle-arrow-left"></i> Back</p></a>
+    </div>
+    <h1 class="heading">
+        Request Assistance
+    </h1>
+    <div class="total">
+        <div class="container">
+            <img src="logo(1).png" alt="" width="200px">
+            <form action="">
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" id="name" placeholder="name" required><br><br>
+                <label for="phone">Phone number:</label><br>
+                <input type="number" name="phone" id="phone" placeholder="mobile" required><br><br><br>
+                <label for="vehicle">Vehicle Type:</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="">Select Vehicle Type</option>
+                    <option value="Car">two wheeler</option>
+                    <option value="Motorcycle">three wheeler</option>
+                    <option value="Truck">four wheeler</option>
+                </select><br><br><br>
+                <label for="location">Breakdown Location:</label><br>
+                <button class="but" onclick="getLocation()"><i class="fa-solid fa-location-crosshairs"></i> Current location</button>
+                <p id="demo"></p>
+                <br>
+                <label for="issue">Problem Description:</label><br>
+                <textarea id="issue" name="issue" rows="6" cols="32" placeholder="Describe the issue...." required></textarea><br><br>
+                <button type="submit">Next</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <script>
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>
+

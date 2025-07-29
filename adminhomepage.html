@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5368e641d8.js" crossorigin="anonymous"></script>
+    <title>Admin Home</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #e2eff1;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #e2eff1;
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+        }
+        .logo_img{
+            margin-left: 450px;
+            animation: bln 2s;
+        }
+        @keyframes bln {
+            0%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.87);
+            padding: 10px;
+            animation: navn 2s;
+        }
+        a{
+            animation: navi 1s;
+        }
+        @keyframes navi {
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        @keyframes navn {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .img_a{
+            margin-left: 40px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.87);
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #e2eff1;
+            border-radius: 10px;
+            color: black;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+               animation: navn 2s;
+        }
+        footer {
+            background-color: rgba(0,0,0,0.87);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: navn 2s;
+        }
+        .a{
+            margin-left: 1400px;
+            font-size: 30px;
+            position: absolute;
+            animation: ani 2s infinite;
+        }
+        .b{
+            margin-left: 1370px;
+            font-size: 30px;
+            color:chocolate;
+            margin-top: 20px;
+            position: absolute;
+            animation: anm 2s infinite;
+        }
+        @keyframes ani {
+            0%{
+                rotate: 0deg;    
+            }    
+            100%{
+                rotate: -180deg;
+            }
+        }
+        @keyframes anm {
+            0%{
+                rotate: 0deg;    
+            }    
+            100%{
+                rotate: 180deg;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo(1).png" alt="" width="120px" class="img_a">
+        <h1 class="logo_img">WELCOME, ADMIN!</h1>
+        <span class="a"><i class="fa-solid fa-gear"></i></span><br>
+        <span class="b"><i class="fa-solid fa-gear"></i></span>
+    </header>
+
+    <nav>
+        <a href="#">Manage Users</a>
+        <a href="#">Manage Businesses</a>
+        <a href="#">View Reports</a>
+        <a href="#" onclick="redirect()">Log Out</a>
+    </nav>
+
+    <section>
+        <h2>Admin Dashboard</h2>
+        <p>Click on "Manage Users" or "Manage Businesses" to view or update details.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 On Road Vehicle Breakdown Assistance</p>
+    </footer>
+    <script>
+        function redirect(){
+            location.replace("startingpage.html");
+        }
+    </script>
+</body>
+</html>

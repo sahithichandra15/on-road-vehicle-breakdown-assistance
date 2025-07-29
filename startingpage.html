@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo(1).png" type="image/x-icon" />
+    <title>ORVBA</title>
+    <script src="https://kit.fontawesome.com/5368e641d8.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url("back.jpg");
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 50px;
+            padding-top: 30px;
+            position: absolute;
+            top: 2%;
+            left: 5%;
+            animation: blink 4s;
+        }
+
+        .img {
+            margin-left: 500px;
+            position: relative;
+            animation: slideIn 4s;
+        }
+
+        .website-name {
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #e2eff1;
+            animation: slideUp 2s ease forwards;
+        }
+        @keyframes slideUp {
+            0% {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 40px;
+            }
+            100% {
+                top:8%;
+                left: 15%;
+                transform: translate(0, 0);
+                font-size: 24px;
+            }
+        }
+        @keyframes slideIn {
+            0% {
+                scale: 0; 
+            }
+            100% {
+                scale: 1;
+            }
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            margin: 50px;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px black;
+            background-color: #e2eff1;
+        }
+
+        button:hover {
+            background-color: #ff6f91;
+        }
+
+        .btn {
+            animation: blink 4s;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        p {
+            color: #e2eff1;
+            margin-top: 10px;
+        }
+
+        .image {
+            filter: drop-shadow(0px 0px 1px white);
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0;
+            }
+
+            .img {
+                margin-left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            button {
+                width: 150px;
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                margin-top: 10px;
+            }
+
+            button {
+                width: 120px;
+                height: 40px;
+                margin: 10px;
+            }
+
+            .img {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+        }
+        .down{
+            margin-top: 130px;
+        }
+        i{
+            font-size: 18px;
+            
+        }
+        .a{
+            animation: sl 2s infinite;
+        }
+        @keyframes sl {
+            0%{
+                rotate: 0deg;;
+            }
+            100%{
+                rotate: 180deg;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container hidden">
+        <img src="/logo(1).png" alt="logo" width="100px" class="image">
+    </div>
+    <div class="website-name">On Road Vehicle Breakdown Assistance</div>
+    <div class="down">
+    <img src="bg-Photoroom.png" alt="" width="500px" class="img">
+    <div class="btn">
+        
+        <button onclick="userLogin()"><i class="fa-solid fa-users"></i> User</button>
+        <button onclick="adminLogin()"><i class="fa-solid fa-user"></i> Admin</button>
+        <button onclick="businessLogin()"><i class="fa-duotone fa-solid fa-gear a"></i> Business</button>
+</body>
+</html>
+<script>
+        function userLogin(){
+            location.replace("userlogin.html");
+        }
+        function adminLogin(){
+            location.replace("Adminlogin.html");
+        }
+        function businessLogin(){
+            location.replace("businesslogin.html");
+        }
+
+        window.onload = function() {
+            setTimeout(function() {
+                document.querySelector('.website-name').classList.add('hidden');
+                document.querySelector('.logo-container').classList.remove('hidden');
+            }, 3000);
+        };
+</script>
