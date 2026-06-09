@@ -123,7 +123,7 @@
 </head>
 <body>
     <div>
-        <a href="userhomepage.html" class="stu"><p><i class="fa-solid fa-circle-arrow-left"></i> Back</p></a>
+        <a href="UserHomePage.html" class="stu"><p><i class="fa-solid fa-circle-arrow-left"></i> Back</p></a>
     </div>
     <h1 class="heading">
         Request Assistance
@@ -154,21 +154,7 @@
         </div>
         </div>
     </div>
-    <script>
-        const x = document.getElementById("demo");
-
-        function getLocation() {
-        if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-        }
-    </script>
+    <script src="..js/DataEntry.js"></script>
 </body>
 </html>
 

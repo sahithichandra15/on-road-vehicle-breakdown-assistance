@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if ($password === $storedPassword) {
         
-            echo "<script>location.replace('userhomepage.html');</script>";
+            echo "<script>location.replace('UserHomePage.html');</script>";
         } else {
             
             echo "Invalid username or password.";

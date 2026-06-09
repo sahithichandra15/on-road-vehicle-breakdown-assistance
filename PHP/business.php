@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if ($stmt->execute()) {
-        header('Location: businesslogin.html'); 
+        header('Location: BusinessLogin.html'); 
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

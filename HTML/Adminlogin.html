@@ -10,7 +10,7 @@
 </head>
 <body>
     <div>
-    <a href="startingpage.html" class="stu"><p><i class="fa-solid fa-house"></i> Home</p></a></div>
+    <a href="StartingPage.html" class="stu"><p><i class="fa-solid fa-house"></i> Home</p></a></div>
     <h1>Admin Login</h1>
     <div class="total">
     <div class="logo">
@@ -27,18 +27,6 @@
     <div class="new">
     </div>
     </div>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            if (email && password) {
-                location.replace("adminhomepage.html");
-            } else {
-                document.getElementById('errorMessage').style.display = 'block';
-            }
-        });
-    </script>
+    <script src="../JS/AdminLogin.js"></script>
 </body>
 </html>

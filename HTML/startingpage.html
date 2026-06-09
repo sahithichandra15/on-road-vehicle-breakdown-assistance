@@ -13,7 +13,7 @@
             box-sizing: border-box;
         }
         body {
-            background-image: url("back.jpg");
+            background-image: url("../Images/back.jpg");
             background-position: fixed;
             background-repeat: no-repeat;
             background-size: cover;
@@ -180,26 +180,10 @@
     <img src="../Images/bg-Photoroom.png" alt="" width="500px" class="img">
     <div class="btn">
         
-        <button onclick="userLogin()"><i class="fa-solid fa-users"></i> User</button>
-        <button onclick="adminLogin()"><i class="fa-solid fa-user"></i> Admin</button>
-        <button onclick="businessLogin()"><i class="fa-duotone fa-solid fa-gear a"></i> Business</button>
+        <button onclick="UserLogin()"><i class="fa-solid fa-users"></i> User</button>
+        <button onclick="AdminLogin()"><i class="fa-solid fa-user"></i> Admin</button>
+        <button onclick="BusinessLogin()"><i class="fa-duotone fa-solid fa-gear a"></i> Business</button>
+     </div>
+     <script src="../JS/StartingPage.js"></script>   
 </body>
 </html>
-<script>
-        function userLogin(){
-            location.replace("userlogin.html");
-        }
-        function adminLogin(){
-            location.replace("Adminlogin.html");
-        }
-        function businessLogin(){
-            location.replace("businesslogin.html");
-        }
-
-        window.onload = function() {
-            setTimeout(function() {
-                document.querySelector('.website-name').classList.add('hidden');
-                document.querySelector('.logo-container').classList.remove('hidden');
-            }, 3000);
-        };
-</script>

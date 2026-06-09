@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($stmt->execute()) {
     
-        echo "<script>location.replace('userlogin.html');</script>";
+        echo "<script>location.replace('UserLogin.html');</script>";
     } else {
         echo "Error executing query: " . $stmt->error;
     }
